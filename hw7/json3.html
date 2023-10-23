@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chic Boutique</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles.css" type="text/css">        
+    </head>
+    <body>
+        <h1>chic boutique!</h1>
+        <!--form for filtering categories -->  
+       <form>
+            <label for="allOptions">Select the category you would like to see:</label>
+            <select id="allOptions"></select>
+            <button type="button">Filter</button>
+       </form>
+       <div class="products"></div>
+        <script language="javascript">
+            $(document).ready(function(){
+                var totalOptions = [];
+                var set; 
+                // get JSON data 
+                $.getJSON("https://lillian-tran.github.io/cs20/hw7/products.json", function(json){
+                    var data = json; 
+                    // add all categories to array 
+                    $.each(data.products, function(data) {  
+                        if (Array.isArray(this.categories)) { //product with multiple categories 
+                            totalOptions.push(this.categories[1]);
+                        }
+                        else{
+                            totalOptions.push(this.categories);
+                        }
+                        set = [...new Set(totalOptions)]; // removes all duplicates from array of categories 
+                    });
+                    // creates drop down option for each category 
+                    $.each(set, function(set){
+                        $("#allOptions").append('<option value=' + this + '>' + this + '</option>'); 
+                    })
+                    // event handling for the filtering 
+                    $("button").click(function() {
+                        $(".products").empty(); //clear all products currently displayed in body 
+                        $.each(data.products, function(data){
+                            var selected = $('#allOptions option:selected').val(); //gets selected category 
+                            // displays all products in selected category 
+                            if (selected === this.categories){
+                                $(".products").append('<p class = "name">' + this.name + '</p>'); 
+                                $(".products").append('<p class = "description">' + this.description + '</p>'); 
+                                $(".products").append('<p class = "sizes"> Sizes: ' + this.sizes + '</p>'); 
+                                $(".products").append('<p class = "price"> Price: $' + this.price + '</p>'); 
+                                $(".products").append('<p class = "categories"> Categories: ' + this.categories + '</p>');  
+                            }
+                            if (Array.isArray(this.categories)) { // check if product with multiple categories is in selected
+                                console.log("categories[1]" + this.categories[1])
+                                if (selected == this.categories[1] || selected == this.categories[0]){
+                                    $(".products").append('<p class = "name">' + this.name + '</p>'); 
+                                    $(".products").append('<p class = "description">' + this.description + '</p>'); 
+                                    $(".products").append('<p class = "sizes"> Sizes: ' + this.sizes + '</p>'); 
+                                    $(".products").append('<p class = "price"> Price: $' + this.price + '</p>'); 
+                                    $(".products").append('<p class = "categories"> Categories: ' + this.categories + '</p>');  
+                                }
+                            }
+                        }); 
+                    })
+            });
+            })
+        </script>  
+    </body>
+    <footer>
+    </footer>
+</html>

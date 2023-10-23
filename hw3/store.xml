@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href = "styles.css" ?>
+<product>
+    <store_heading>Chic Boutique</store_heading>
+    <pants>
+        <name>Mom Jeans</name>
+        <description>Light Wash Levi's Mom Jeans</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+        </sizes>
+        <price>$80</price>
+        <categories>
+            <category>jeans</category>
+            <category>pants</category>
+            <category>light wash</category>
+        </categories>
+    </pants>
+    <pants>
+        <name>Vintage Straight Leg Jeans</name>
+        <description>Vintage Light Wash Levi's Straight Leg Jeans</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+        </sizes>
+        <price>$90</price>
+        <categories>
+            <category>jeans</category>
+            <category>pants</category>
+            <category>vintage</category>
+            <category>light wash</category>
+            <category>straight leg</category>
+        </categories>
+    </pants>
+    <pants>
+        <name>Dad Jeans</name>
+        <description>Medium Wash Levi's Dad Jeans</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+        </sizes>
+        <price>$95</price>
+        <categories>
+            <category>jeans</category>
+            <category>pants</category>
+            <category>medium wash</category>
+        </categories>
+    </pants>
+    <pants>
+        <name>Cargo Pants</name>
+        <description>Army Print Cargo Pants</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+        </sizes>
+        <price>$100</price>
+        <categories>
+            <category>cargos</category>
+            <category>army print</category>
+            <category>pants</category>
+        </categories>
+    </pants>
+    <shirts>
+        <name>Vintage T Shirt</name>
+        <description>Vintage Beatles T Shirt</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+            <size>x-large</size>
+        </sizes>
+        <price>$55</price>
+        <categories>
+            <category>shirts</category>
+             <category>vintage</category>
+        </categories>
+    </shirts>
+    <shirts>
+        <name>Polo T Shirt</name>
+        <description>Vintage Polo T Shirt</description>
+        <sizes>
+            <size>small</size>
+            <size>medium</size>
+            <size>large</size>
+        </sizes>
+        <price>$45</price>
+        <categories>
+            <category>vintage</category>
+            <category>shirts</category>
+            <category>polos</category>
+        </categories>
+    </shirts>
+    <hats>
+        <name>Trucker Hat</name>
+        <description>Smiley Face Trucker Hat</description>
+        <sizes>
+            <size>medium</size>
+        </sizes>
+        <price>$35</price>
+        <categories>
+            <category>hats</category>
+        </categories>
+    </hats>
+    <hats>
+        <name>Beanie </name>
+        <description>Brooklyn Beanie</description>
+        <sizes>
+            <size>medium</size>
+        </sizes>
+        <price>$30</price>
+        <categories>
+            <category>hats</category>
+        </categories>
+    </hats>
+</product>

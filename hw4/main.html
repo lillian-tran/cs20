@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Joe's Hotdog Stand</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles.css" type="text/css">        
+    </head>
+    <body>
+        <h1>Welcome to Joe's Hotdog Stand</h1>
+        <p>Joe's is your newest no-frills dining experience in Medford. Check out our quick and easy menu:</p>
+        <ul>
+            <li>Hotdogs, $3.75</li>
+            <li>French Fries, $3.00</li>
+            <li>Drinks, $2.50</li>
+        </ul>
+        <br>
+        <p>Ready to order? Click the button below!</p>
+        <button onclick="orderProcess()">ORDER HERE!</button>
+        <p id="orders"></p>
+        <p id="conditionals"></p>
+        <p id="finalPrices"></p>
+
+        <script language="javascript">
+            const hotdog = 3.75
+            const fries = 3
+            const drinks = 2.5 
+            var subtotal, discount, total, dPrice, fPrice, sPrice; 
+            /*
+            * name: orderProcess
+            * parameters: none
+            * purpose: goes through order flow from prompting user to calculating cost
+            */
+            function orderProcess(){ 
+                // getting and storing orders and sums
+                document.getElementById("conditionals").innerHTML = ""; 
+                var numDogs = parseInt(prompt("Please enter how many hotdogs you want to order."));
+                dPrice = numDogs * hotdog; 
+                var numFries = parseInt(prompt("Please enter how many fries you want to order."));
+                fPrice = numFries * fries; 
+                var numSoda =  parseInt(prompt("Please enter how many drinks you want to order."));
+                sPrice = numSoda * drinks; 
+                subtotal = dPrice + fPrice + sPrice; 
+                // checking for discounts and calculating discount/tax totals
+                if (subtotal >= 25){
+                    discount = subtotal * .1; 
+                    subtotal -= discount; 
+                }
+                else{
+                    discount = 0; 
+                }
+                total = subtotal * 1.0625; 
+                //displaying number of each order and prices/subtotals
+                document.getElementById("orders").innerHTML = 
+                "Number of hotdogs ordered: " + numDogs + ", $" + currency(dPrice) +
+                "<br> Number of fries ordered: " + numFries + ", $" + currency(fPrice) + 
+                "<br> Number of drinks ordered: " + numSoda + ", $" + currency(sPrice) +  
+                "<br> Subtotal: $" + currency(subtotal + discount);
+                //conditionally displaying discount
+                if (discount > 0){
+                    document.getElementById("conditionals").innerHTML = 
+                    "<br> Discount: $" + currency(discount) +
+                    "<br> Subtotal after discount: $" + currency(subtotal)
+                } 
+                //displaying tax and totals 
+                document.getElementById("finalPrices").innerHTML = 
+                "<br> Tax amount: $" + currency(subtotal * .0625) + 
+                "<br> Total: $" + currency(total); 
+            }    
+            /*
+            * name: currency
+            * parameters: a value that represents currency (rounded or not)
+            * purpose: ensures that all currency amounts are rounded to exactly 2 decimal places
+            * returns: the correctly rounded value 
+            */
+            function currency(price){
+                var rounded = Math.floor(price * 100) / 100; 
+                let stringed = rounded.toString(); 
+                // for integers with no decimals 
+                if (rounded % 1 == 0){
+                    stringed += ".00"
+                }
+                // for decimals that need one more place 
+                if (stringed.substring(stringed.indexOf(".")).length != 3) {
+                    stringed += "0"
+                }
+                return stringed; 
+            }
+        </script>
+    </body>
+    <footer>
+        <p>Joe's Hotdog Stand</p>
+        <p>123 Hot Dog Road, Medford, MA, 02155</p>
+        <p>contact@joe.org || 617-111-2222</p>
+        <div class="socials">
+            <a href="https://instagram.com">
+                <img src="ig.png" width=40px;>              
+            </a> 
+        </div>
+        <p>&copy; 2023</p>
+    </footer>
+</html>

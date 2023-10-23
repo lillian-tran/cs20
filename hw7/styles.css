@@ -1,0 +1,35 @@
+body{
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fcffbe; 
+}
+
+h1{
+    font-size: 35px; 
+    color: #f45380;
+}
+
+.product{
+    border: 5px #ffc6fc;
+    border-style: solid none;
+}
+
+.name {
+    font-size: 24px; 
+    font-weight: bolder; 
+    color: #f47398;
+}
+
+.description{
+    font-style: italic;
+}
+
+.price {
+    font-size: 22px; 
+    font-weight: bolder; 
+    color: #770022;
+}
+
+.sizes{
+    font-size: 20px; 
+}

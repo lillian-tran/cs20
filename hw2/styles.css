@@ -1,0 +1,102 @@
+body {
+    text-align: center;
+    background-color: #d3c9ff;
+    font-family: sans-serif;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    /* background: blue; */
+}
+
+.logo{
+    width: 65px; 
+    height: 65px; 
+    padding-left: 20px; 
+}
+
+.nav li {
+    display: inline-block; 
+    list-style-type: none;
+    font-size: 20px; 
+    color: #fff; 
+    padding: 5px 13px 8px 20px; 
+    box-sizing:border-box;
+    background-color: #d3c9ff;
+}
+		
+.nav li:hover {
+    color: #ffc9da;
+    background-color: #F5FFC9;
+}
+
+.nav li a {
+    text-decoration: none; 
+    color: inherit;
+}	
+
+.cover{
+    position: relative;
+}
+
+.bg{
+    width: 100vw;
+    height: 80vh;
+    opacity: .70;
+}
+
+.centered{ 
+    color: #ffffff; 
+    z-index: 1;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px; 
+}
+
+.centered p{
+    font-size: 40px;
+    padding-block: 20px;
+}
+.socials a{
+    text-decoration:none;
+}
+
+.intro{
+    display: flex; 
+    padding-bottom: 30px; 
+}
+
+.sample{
+    padding-top: 20px;
+    padding-left: 50px; 
+    padding-right: 50px; 
+}
+
+.sample p{
+    padding-top: 45px;
+    color: #F5FFC9; 
+}
+
+
+.contact_header{
+    font-size: 50px; 
+    margin-top: 0px; 
+    padding-top: 20px; 
+    color: white; 
+}
+
+.questions{
+    padding-left: 55px;
+    padding-right: 55px;
+    font-size: 20px; 
+}
+
+footer{
+    margin-top: 30px; 
+    border-top-style: dashed; 
+}

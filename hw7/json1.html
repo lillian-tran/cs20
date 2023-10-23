@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chic Boutique</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <script language="javascript">
+        // assigning JSON object to variable 
+        let productList = {"products": [
+        {
+            "name": "Mom Jeans",
+            "description": "Light Wash Levi's Mom Jeans",
+            "sizes": ["small", "medium", "large"], 
+            "categories": "pants", 
+            "price": 80
+            
+        },
+        {
+            "name": "Straight Leg Jeans",
+            "description": "Vintage Light Wash Levi's Straight Leg Jeans", 
+            "sizes": ["small", "medium", "large"], 
+            "categories": ["pants", "vintage"], 
+            "price": 90
+        },
+        {
+            "name": "Levi's Dad Jeans",
+            "description": "Medium Wash Levi's Dad Jeans",
+            "sizes": ["small", "medium", "large"], 
+            "categories": "pants", 
+            "price": 95
+        },
+        {
+            "name": "Cargo Pants",
+            "description": "Army Print Cargo Pants", 
+            "sizes": ["small", "medium", "large"], 
+            "categories": "pants", 
+            "price": 100
+        },
+        {
+            "name": "Sweatpants",
+            "description": "Lounge Sweatpants",
+            "sizes": ["small", "medium", "large", "x-large"], 
+            "categories": "pants",
+            "price": 95
+        },
+        {
+            "name": "Vintage T Shirt",
+            "description": "Vintage Band T Shirt", 
+            "sizes": ["small", "medium", "large", "x-large"], 
+            "categories": ["shirts", "vintage"], 
+            "price": 55
+        },
+        {
+            "name": "Polo T Shirt",
+            "description": "Vintage Polo T Shirt", 
+            "sizes": ["small", "medium", "large"], 
+            "categories": ["shirts", "vintage"], 
+            "price": 45
+        },
+        {
+            "name": "Crop T Shirt",
+            "description": "Crop Top T Shirt", 
+            "sizes": "medium", 
+            "categories": "shirts", 
+            "price": 25
+        },
+        {
+            "name": "Tie Dye T Shirt",
+            "description": "Tie Dye Vintage T Shirt", 
+            "sizes": ["medium", "large"], 
+            "categories": ["shirts", "vintage"], 
+            "price": 90
+        },
+        {
+            "name": "Trucker Hat",
+            "description": "Vintage Trucker Hat",
+            "sizes": "medium", 
+            "categories": ["hats", "vintage"], 
+            "price": 35
+        }, 
+        {
+            "name": "Beanie",
+            "description": "Brooklyn Beanie", 
+            "sizes": "medium", 
+            "categories": "hats", 
+            "price": 30
+        }, 
+        {
+            "name": "Ring",
+            "description": "Costume Jewelry Ring", 
+            "sizes": ["small", "medium", "large"], 
+            "categories": "jewelry", 
+            "price": 9
+        }
+        ]}
+        stringProducts = JSON.stringify(productList);	//convert to string 
+        document.write(stringProducts); //display raw data 
+        </script>  
+    </body>
+    <footer>
+    </footer>
+</html>

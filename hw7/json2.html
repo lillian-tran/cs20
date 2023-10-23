@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chic Boutique</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles.css" type="text/css">        
+    </head>
+    <body>
+        <h1>chic boutique!</h1>
+        <div id="products"></div>
+        <script language="javascript">
+            // read in JSON data from file 
+            $.getJSON("https://lillian-tran.github.io/cs20/hw7/products.json", function(json){
+                var productList = ""; 
+                // go through all products in array and display information 
+                for (i = 0; i < json.products.length; i++){
+                    productList += '<div class = product>';
+                    productList += '<p class = "name">' + json.products[i].name + '</p>'; 
+                    productList += '<p class = "description">' + json.products[i].description + '</p>'; 
+                    productList += '<p class = "sizes"> Sizes: ' + json.products[i].sizes + '</p>'; 
+                    productList += '<p class = "price"> Price: $' + json.products[i].price + '</p>'; 
+                    productList += '<p class = "categories"> Categories: ' + json.products[i].categories + '</p>';  
+                    productList += '</div><br><br>'; 
+                }
+                document.getElementById("products").innerHTML = productList; 
+            })
+        </script>  
+    </body>
+    <footer>
+    </footer>
+</html>

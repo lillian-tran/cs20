@@ -1,0 +1,60 @@
+product{
+    text-align: center;
+    background-color: #FFDCEC;
+    font-family: sans-serif;
+    margin-top: 25px; 
+}
+
+store_heading{
+    display: block; 
+    font-weight: bolder; 
+    font-size: 50px; 
+    text-align: center; 
+    color: #f26a8d;
+    margin-bottom: 25px; 
+}
+
+pants, shirts, hats{
+    font-size: 30px; 
+    margin-bottom: 20px 100px 20px; 
+    display: block; 
+    margin-bottom: 20px; 
+}
+
+name{
+    text-align: center; 
+    color: #dd2d4a;  
+    display: block; 
+    font-weight: bolder; 
+    margin-bottom: 10px; 
+}
+
+description{
+    font-size: 20px; 
+    margin: 0px 10px 0px; 
+    display: block; 
+    font-style: italic;
+}
+
+price{
+    font-size: 25px; 
+    font-weight: bolder; 
+}
+
+sizes, categories{
+    display: block; 
+    font-size: 18px; 
+    margin: 10px; 
+}
+
+size{
+    border: 5px solid #ffa0dc; 
+    background-color: #ffa0dc; 
+}
+
+category{
+    border: 2.5px solid #ffbad9; 
+    background-color: #ffbad9;  
+}
+
+

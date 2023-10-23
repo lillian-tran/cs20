@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" type="text/css">        
+</head>
+<body>
+	<h1>Tic Tac Toe!</h1>
+    <div class="currentPlayer">
+        <p id ="update"></p>    
+	</div>
+    <div id="grid"> </div>
+	<br>
+    <button class="reset" onclick="reset()">Play Again</button>
+
+    <script language="javascript">
+        let player = "X"; 
+        document.getElementById("update").innerHTML = "PLAYER " + player + "'S TURN"; 
+        let totalMoves = 0; 
+        window.onload = createGrid; 
+
+        /*
+            * name: createGrid
+            * parameters: none
+            * purpose: creates the grid for the game 
+            * returns: none
+        */
+        function createGrid(){    
+            for(let i = 0; i < 9; i++){
+                var box = document.createElement("button"); 
+                box.onclick = playerTurn; 
+                box.classList.add("cell");         
+                document.getElementById('grid').appendChild(box);  
+            }
+        }
+
+        /*
+            * name: playerTurn
+            * parameters: none
+            * purpose: fills chosen box with player symbol, checks for win, and updates to next player 
+            * returns: nothing if there has been a win
+        */
+        function playerTurn(){
+            // sets clicked box to player symbol and prevents overwrite 
+            this.innerHTML = player;
+            this.disabled = true; 
+            // calls function to check for win 
+            if (winCheck()){ 
+                return; 
+            }
+            // flips to the next player and updates text 
+            if (player === "X"){
+                player = "O";                 
+            }
+            else{
+                player = "X";
+            }
+            document.getElementById("update").innerHTML = "PLAYER " + player + "'S TURN"; 
+            // track total moves to see if board has been filled 
+            totalMoves++; 
+            if (totalMoves == 9){
+                winCheck(); 
+            }
+        }
+
+        /*
+            * name: reset
+            * parameters: none
+            * purpose: clears all player symbols and resets grid 
+            * returns: none
+        */
+        function reset(){
+            // resets player information 
+            totalMoves = 0; 
+            player = "X"
+            document.getElementById("update").innerHTML = "PLAYER " + player + "'S TURN"; 
+            // resets and completely clears grid                
+            document.getElementById("grid").innerHTML = ""; 
+            // sets grid boxes back up 
+            createGrid();      
+        }
+
+
+        //hard code of all possible win types 
+        let winTypes = [[0, 1, 2], [3, 4, 5], [6, 7, 8], //checking for wins in rows
+                        [0, 3, 6], [1, 4, 7], [2, 5, 8], //checking for wins in columns
+                        [0, 4, 8], [2, 4, 6]] //checking for wins in the diagonals
+        /*
+            * name: winCheck
+            * parameters: none
+            * purpose: checks if there's a stalemate or win 
+            * returns: true if there's a win
+        */
+        function winCheck(){
+            const allButtons = document.getElementsByClassName("cell")
+            // all boxes have been filled 
+            if (totalMoves == 9){
+                document.getElementById("update").innerHTML = "STALEMATE! GAME OVER :("; 
+            }
+            // check for winner by using all possible types of wins
+            for (let i = 0; i < 8; i++){
+                if ((allButtons[winTypes[i][0]].innerHTML == player) && (allButtons[winTypes[i][1]].innerHTML == player) && (allButtons[winTypes[i][2]].innerHTML == player)){
+                    document.getElementById("update").innerHTML = "PLAYER " + player + " WINS!"; 
+                    return true; 
+                }
+            }
+        }     
+    </script>
+</body>
+</html>
