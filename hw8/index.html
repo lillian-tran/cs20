@@ -6,15 +6,22 @@
 	<meta charset="utf-8"/>
     <link rel="stylesheet" href="styles.css" type="text/css"> 
 	<script>
+         /*
+            * name: loadData()
+            * parameters: none
+            * purpose: gets and displays the data from the API call 
+        */
 		function loadData() {
             count = document.getElementById('quantity').value;
+            // get data from API with api key and number you want to display 
             url = "https://api.nasa.gov/planetary/apod?api_key=lM1QAypzgtzkULZo2EY4aAbgpLIgoU7q25pWi0YM&count=" + count; 
             document.getElementById('elements').innerHTML = ""; 
             fetch(url)
             .then(res => res.text())
                 .then (data => {
+                    // turn data into json 
                     const parsed = JSON.parse(data); 
-                    // console.log(parsed);
+                    // display data in user friendly format 
                     for(i = 0; i < count; i++){
                         document.getElementById("elements").innerHTML += "<br><h2>Title: " + parsed[i].title + 
                         "</h2><br>";
@@ -34,28 +41,29 @@
         <h1>NASA Astronomy Picture of the Day API</h1>
         <p>
             The API I selected was NASA's APOD API. Everyday, they have a new astronomy 
-            picture and a little explanation of it.  I first found NASA's general API page through this Github list of free APIs: https://github.com/public-apis/public-apis.
-            <br><br>
-            In my request, there were two parameters I provided. The first is the API key I had to 
-            generate in order to access the data, and the second one was "count", which returns random 
-            astronomy pictures from different days up to the specified count number.
-            <br><br>
-            Two applications where this API could be helpful are:   
+            picture and a little explanation of it. 
         </p>
-        <ol>
-            <li>teaching people about different astronomical phenomenon.</li>
-            <li>showcasing the work the important work NASA astronomers do on a daily basis</li>
-        </ol>
-        <p> To try it out, pick a number of different "Astronomy Pictures of the Days" you want to see: </p>
-   </div>
-	<form>
+        <p id="try">To try it out, pick a number of different "Astronomy Pictures of the Days" you want to see: </p>
+    </div>
+    <form>
         <label for="quantity">Number of APODs between 1-5 (to not exceed rate limit):</label>
         <input type="number" id="quantity" name="quantity" max="5">
         <br><input type = "button" value = "Submit"
         onclick="loadData()">
     </form>
-    <div id="elements"> 
-
-    </div>
+    <div id="elements"> </div>
+    <p>
+        I first found NASA's general API page through this Github list of free APIs: https://github.com/public-apis/public-apis, and then was able to see this one specifically under their list of APIs.
+        <br><br>
+        In my request, there were two parameters I provided. The first is the API key I had to 
+        generate in order to access the data, and the second one was "count", which returns random 
+        astronomy pictures from different days up to the specified count number.
+        <br><br>
+        Two applications where this API could be helpful are:   
+    </p>
+    <ol>
+        <li>teaching people about different astronomical phenomenon.</li>
+        <li>showcasing the work the important work NASA astronomers do on a daily basis</li>
+    </ol>
 </body>
 </html>
